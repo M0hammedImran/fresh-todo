@@ -16,9 +16,12 @@ export async function handler(req: Request, ctx: HandlerContext) {
 
       const data = await Todo.find(id);
 
-      return new Response(JSON.stringify({ data }), {
-        headers: { "Content-Type": "application/json" },
-      });
+      return Response.json(
+        { data },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
     }
 
     if (req.method === "PATCH") {
@@ -29,9 +32,12 @@ export async function handler(req: Request, ctx: HandlerContext) {
       await Todo.where({ id }).update(todo);
       const data = await Todo.find(id);
 
-      return new Response(JSON.stringify({ data }), {
-        headers: { "Content-Type": "application/json" },
-      });
+      return Response.json(
+        { data },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
     }
 
     if (req.method === "DELETE") {
@@ -39,30 +45,39 @@ export async function handler(req: Request, ctx: HandlerContext) {
 
       await Todo.deleteById(id);
 
-      return new Response(JSON.stringify({ message: "success" }), {
-        headers: { "Content-Type": "application/json" },
-      });
+      return Response.json(
+        { message: "success" },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
     }
 
-    return new Response(undefined, {
+    return Response.json(undefined, {
       headers: { "Content-Type": "application/json" },
       status: 405,
       statusText: "Method Not Allowed",
     });
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return new Response(JSON.stringify({ error, message: "Invalid Id" }), {
-        headers: { "Content-Type": "application/json" },
-        status: 400,
-        statusText: "Bad Request",
-      });
+      return Response.json(
+        { error, message: "Invalid Id" },
+        {
+          headers: { "Content-Type": "application/json" },
+          status: 400,
+          statusText: "Bad Request",
+        }
+      );
     }
 
-    return new Response(JSON.stringify({ error }), {
-      headers: { "Content-Type": "application/json" },
-      status: 500,
-      statusText: "Internal Server Error",
-    });
+    return Response.json(
+      { error },
+      {
+        headers: { "Content-Type": "application/json" },
+        status: 500,
+        statusText: "Internal Server Error",
+      }
+    );
   } finally {
     await db.close();
   }
