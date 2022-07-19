@@ -2,7 +2,7 @@
 	"imports": {
 		"$fresh/": "https://deno.land/x/fresh@1.0.0/",
 		"$zod/": "https://deno.land/x/zod@v3.17.3/",
-		"$denodb/": "https://deno.land/x/denodb@v1.0.40/",
+		"$denodb/": "https://raw.githubusercontent.com/joeldesante/denodb/master/",
 		"preact": "https://esm.sh/preact@10.8.1",
 		"preact/": "https://esm.sh/preact@10.8.1/",
 		"preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.0?deps=preact@10.8.1"

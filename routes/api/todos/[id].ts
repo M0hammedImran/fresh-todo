@@ -1,5 +1,5 @@
 import { HandlerContext } from '$fresh/server.ts';
-import { Todo } from '../../../Models/Todo.ts';
+import { Todo } from '../../../models/Todo.ts';
 import { db } from '../../../utils/db.ts';
 import * as zod from 'https://deno.land/x/zod@v3.17.3/mod.ts';
 

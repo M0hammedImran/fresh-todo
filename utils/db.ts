@@ -1,5 +1,5 @@
-import { Database, PostgresConnector } from 'https://deno.land/x/denodb@v1.0.40/mod.ts';
-import { Todo } from "../Models/Todo.ts";
+import { Database, PostgresConnector } from '$denodb/mod.ts';
+import { Todo } from "../models/Todo.ts";
 
 const connection = new PostgresConnector({
 	host: 'localhost',
