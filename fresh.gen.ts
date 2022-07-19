@@ -5,7 +5,9 @@
 import * as $0 from "./routes/api/todos/[id].ts";
 import * as $1 from "./routes/api/todos/index.ts";
 import * as $2 from "./routes/index.tsx";
-import * as $$0 from "./islands/Counter.tsx";
+import * as $$0 from "./islands/AddTodoForm.tsx";
+import * as $$1 from "./islands/DeleteTodo.tsx";
+import * as $$2 from "./islands/SetCompleted.tsx";
 
 const manifest = {
   routes: {
@@ -14,7 +16,9 @@ const manifest = {
     "./routes/index.tsx": $2,
   },
   islands: {
-    "./islands/Counter.tsx": $$0,
+    "./islands/AddTodoForm.tsx": $$0,
+    "./islands/DeleteTodo.tsx": $$1,
+    "./islands/SetCompleted.tsx": $$2,
   },
   baseUrl: import.meta.url,
 };

@@ -1,16 +1,20 @@
 import { DataTypes, Model } from "$denodb/mod.ts";
 
 export class Todo extends Model {
-	static table = 'todos';
-	static timestamps = true;
+  static table = "todos";
+  static timestamps = true;
 
-	static fields = {
-		id: { primaryKey: true, autoIncrement: true },
-		text: DataTypes.STRING,
-		completed: DataTypes.BOOLEAN,
-	};
+  id!: string;
+  text!: string;
+  completed!: boolean;
 
-	static defaults = {
-		completed: false,
-	};
+  static fields = {
+    id: { primaryKey: true, autoIncrement: true },
+    text: DataTypes.STRING,
+    completed: DataTypes.BOOLEAN,
+  };
+
+  static defaults = {
+    completed: false,
+  };
 }
