@@ -1,15 +1,10 @@
-import { Database, PostgresConnector } from '$denodb/mod.ts';
+import { Database, PostgresConnector } from "$denodb/mod.ts";
 import { Todo } from "../models/Todo.ts";
 
 const connection = new PostgresConnector({
-	host: 'localhost',
-	port: 5432,
-	username: 'user',
-	password: 'password',
-	database: 'freshapp',
+  uri: "postgres://user:password@localhost:5432/freshapp",
 });
 
 export const db = new Database(connection);
 
-db.link([Todo])
-
+db.link([Todo]);
